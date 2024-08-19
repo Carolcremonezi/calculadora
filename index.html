@@ -16,37 +16,64 @@
                 <p id="resultado"></p>
                 <table>
                     <tr>
-                        <td><button class="botao">☠</button></td>
-                        <td><button class="botao"><</button></td>
-                        <td><button class="botao">/</button></td>
-                        <td><button class="botao">x</button></td>
+                        <td><button class="botao"onclick="clean()">☠</button></td>
+                        <td><button class="botao"onclick="back()">></button></td>
+                        <td><button class="botao"onclick="insert('/')">/</button></td>
+                        <td><button class="botao"onclick="insert('*')">*</button></td>
                     </tr>
                     <tr>
-                        <td><button class="botao">𝟳</button></td>
-                        <td><button class="botao">𝟴</button></td>
-                        <td><button class="botao">𝟵</button></td>
-                        <td><button class="botao">-</button></td>
+                        <td><button class="botao"onclick="insert('𝟳')">𝟳</button></td>
+                        <td><button class="botao"onclick="insert('𝟴')">𝟴</button></td>
+                        <td><button class="botao"onclick="insert('𝟵')">𝟵</button></td>
+                        <td><button class="botao"onclick="insert('-')">-</button></td>
                     </tr>
                     <tr>
-                        <td><button class="botao">𝟰</button></td>
-                        <td><button class="botao">𝟱</button></td>
-                        <td><button class="botao">𝟲</button></td>
-                        <td><button class="botao">+</button></td>
+                        <td><button class="botao"onclick="insert('𝟰')">𝟰</button></td>
+                        <td><button class="botao"onclick="insert('𝟱')">𝟱</button></td>
+                        <td><button class="botao"onclick="insert('𝟲')">𝟲</button></td>
+                        <td><button class="botao"onclick="insert('+')">+</button></td>
                     </tr>
                     <tr>
-                        <td><button class="botao">𝟭</button></td>
-                        <td><button class="botao">𝟮</button></td>
-                        <td><button class="botao">𝟯</button></td>
-                        <td rowspan="2"><button class="botao" style="height: 106px;">=</button></td>
+                        <td><button class="botao"onclick="insert('𝟭')">𝟭</button></td>
+                        <td><button class="botao"onclick="insert('𝟮')">𝟮</button></td>
+                        <td><button class="botao"onclick="insert('𝟯')">𝟯</button></td>
+                        <td rowspan="2"><button class="botao" style="height: 106px;" onclick="calcular()">=</button></td>
                     </tr>
                     <tr>
-                        <td colspan="2"> <button class="botao" style="width: 106px;">𝟬</button></td>
-                        <td><button class="botao">.</button></td>
+                        <td colspan="2"> <button class="botao" style="width: 106px;" onclick="insert('𝟬')">𝟬</button></td>
+                        <td><button class="botao" onclick="insert('.')">.</button></td>
                     </tr>
                 </table>
             </div>
         </div>
 <script>
+    function insert (num)
+    {
+        var numero=document.getElementById ('resultado').innerHTML;
+        document.getElementById ('resultado').innerHTML = numero+num;
+    }
+    function clean ()
+                        {
+                            document.getElementById('resultado').innerHTML="";
+                        }
+    function back()
+    {
+        var resultado = document.getElementById('resultado').innerHTML;
+        document.getElementById('resultado').innerHTML= resultado.substring(0, resultado.length -1);
+    }
+    function calcular ()
+    {
+        var resultado = document.getElementById('resultado').innerHTML;
+        if (resultado)
+        {
+            document.getElementById('resultado').innerHTML = eval(resultado);
+   
+        }
+        else
+        {
+            document.getElementById('resultado').innerHTML = "Nada para calcular";
+        }
+    }
 </script>
 </body>
 </html>
